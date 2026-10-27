@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#06111d"><title>ORBITAL GLOBE LAB — Global Network</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+<header class="topbar"><a class="brand" href="#" aria-label="Orbital Globe Lab"><span class="logo">✳</span><span><strong>ORBITAL<span class="cyan">GLOBE</span></strong><small>LAB / GLOBAL CONNECTIONS</small></span></a><div class="top-status"><span class="pulse"></span> SIMULAÇÃO ONLINE <span class="separator">/</span> <span id="clock">00:00:00</span></div><button id="togglePanel" class="mobile-toggle" aria-label="Abrir controles" aria-expanded="false">☰ CONTROLES</button></header>
+<div class="layout">
+<aside class="sidebar" id="sidebar"><div class="eyebrow">CENTRO DE COMANDO <span>V2.0</span></div><h1>Orbital Globe <em>Lab.</em></h1><p class="intro">Explore o planeta, marque coordenadas e visualize conexões em tempo real.</p>
+<div class="section-label">OPERAÇÃO</div><div class="control-row"><span>Exploração automática</span><label class="switch"><input id="auto" type="checkbox" checked><span></span></label></div>
+<div class="control-row"><span>Rotação da Terra</span><label class="switch"><input id="rotation" type="checkbox" checked><span></span></label></div>
+<div class="control-row"><span>Áudio espacial <small>(sintetizado)</small></span><label class="switch"><input id="sound" type="checkbox"><span></span></label></div>
+<div class="control-row"><span>Animação das conexões</span><label class="switch"><input id="physics" type="checkbox" checked><span></span></label></div>
+
+<label class="range-label" for="speed">Velocidade da exploração <output id="speedValue">1.0×</output></label><input type="range" id="speed" min="0.3" max="3" step="0.1" value="1">
+<label class="range-label" for="density">Partículas por rota <output id="densityValue">4</output></label><input type="range" id="density" min="0" max="12" step="1" value="4">
+<div class="section-label">CONTROLE DE MISSÃO</div><button class="primary btn" id="newRoute">✳ GERAR NOVA CONEXÃO</button><div class="two-btn"><button class="btn secondary" id="pause">⏸ PAUSAR</button><button class="btn secondary danger" id="clear">↺ LIMPAR CONEXÕES</button></div>
+<div class="section-label">DESTINOS</div><label class="sr-only" for="destination">Escolha um destino</label><select id="destination"></select><button class="btn secondary full" id="goDestination">◎ CONECTAR DESTINO</button>
+<div class="legend"><span><i class="dot-a"></i> DESTINOS MARCADOS</span><span><i class="dot-b"></i> ROTAS GEOGRÁFICAS</span></div>
+</aside>
+<main class="world"><div id="globe" class="globe" role="img" aria-label="Globo 3D interativo com conexões entre pontos geográficos"></div><div class="world-header"><div><span class="eyebrow">VISTA ORBITAL / TERRA</span><h2>GLOBAL NETWORK <span>01</span></h2></div><div class="live-chip"><span class="pulse"></span> LIVE DATA</div></div><div class="coordinates" id="coordinates">LAT — · LON —<small>CLIQUE NO GLOBO PARA CRIAR UMA ROTA</small></div><div class="controls-hint">↔ ARRASTE PARA GIRAR <span>·</span> ⤢ ROLAGEM PARA ZOOM <span>·</span> ◎ TOQUE PARA MARCAR</div><div class="globe-actions"><button class="circle-btn" id="resetCamera" title="Recentralizar câmera" aria-label="Recentralizar câmera">⟳</button><button class="circle-btn" id="zoomIn" title="Aproximar" aria-label="Aproximar">+</button><button class="circle-btn" id="zoomOut" title="Afastar" aria-label="Afastar">−</button></div><div class="toast" id="toast" aria-live="polite"></div></main>
+<aside class="telemetry"><div class="eyebrow">TELEMETRIA / AO VIVO</div><div class="metric"><span>PONTOS CADASTRADOS</span><strong id="pointsMetric">14</strong><small>LOCAIS DISPONÍVEIS</small></div><div class="metric"><span>CONEXÕES ATIVAS</span><strong id="linksMetric">00</strong><small>LINHAS INTERCONTINENTAIS</small></div><div class="metric"><span>DESTINOS EXPLORADOS</span><strong id="visitedMetric">00</strong><small>NÓS DE REDE</small></div><div class="metric"><span>QUADROS POR SEGUNDO</span><strong id="fpsMetric">--</strong><small>RENDERIZAÇÃO 3D</small></div><div class="section-label">LOG DE ATIVIDADES</div><div class="log" id="log" aria-live="polite"></div><div class="helper">Dica: selecione um ponto no planeta para adicionar um destino à sua rede. Use as opções para adaptar o desempenho ao seu dispositivo.</div></aside>
+</div><footer class="footer">ORBITAL GLOBE LAB <span>● THREE.JS + WEB AUDIO + WEBGL</span><span>DESIGN SYSTEM / NEON ORBITAL</span></footer>
+</div><script type="module" src="./src/main.js"></script>
+</body></html>
