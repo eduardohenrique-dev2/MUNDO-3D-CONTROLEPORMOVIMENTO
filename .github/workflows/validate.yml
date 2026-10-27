@@ -1,0 +1,22 @@
+name: Validar codigo
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validar JavaScript
+        run: node --input-type=module --check < src/main.js
+      - name: Validar Python
+        run: python -m py_compile app.py
+      - name: Validar estrutura do site
+        run: test -f index.html && test -f styles.css && test -f requirements.txt
